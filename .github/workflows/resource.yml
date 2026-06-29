@@ -10,4 +10,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: name-of-author
-              run: echo "Author: ${{ github.actor }}"
+              run: |
+                echo "Author: ${{ github.actor }}"
