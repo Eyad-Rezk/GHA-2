@@ -9,5 +9,5 @@ jobs:
     job-1:
         runs-on: ubuntu-latest
         steps:
-            - name: step-1
-              run: echo "Hello World!"
+            - name: name-of-author
+              run: echo "Author: ${{ github.actor }}"
