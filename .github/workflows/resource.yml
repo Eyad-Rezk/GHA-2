@@ -23,5 +23,6 @@ jobs:
             - name: step-3
               run: |
                 model="2023"
-                echo "bike-model=$model" >> $GITHUB_ENV"
-                echo `{{env.bike-model}}`
+                echo "bike-model=$model" >> $GITHUB_ENV
+                echo "the model is ${{ env.bike-model }}"
+                
