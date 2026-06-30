@@ -1,12 +1,26 @@
 
+name: simple action for input/output task
 
-name: action-cat
-description: This action will print the contents of a file to the console
+description: A simple action that takes an input and returns an output.
 
+inputs: 
+   username:
+     description: 'The username to greet'
+     required: true
+   age:
+     description: 'The age of the user'
+     required: true
+   area:
+     description: 'The area of the user'
+     required: true
+   
 runs:
   using: composite
   steps:
-    - name: cat-file
+    - name: step-1
       shell: bash
       run: |
-        cat notes.txt
+       echo "your name is: ${{inputs.username}}"
+       echo "your age is: ${{inputs.age}}"
+       echo "your area is: ${{inputs.area}}"
+        
