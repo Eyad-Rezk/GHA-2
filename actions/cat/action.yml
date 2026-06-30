@@ -44,12 +44,19 @@ inputs:
      description: 'The private key for SSH access'
      required: true
 
- runs: 
-    using: composite
-    steps:
-    - name: step-1
+runs:
+  using: composite
+  steps:
+    - name: Step-1 Create private key file
       shell: bash
       run: |
-        ssh ${{inputs.hostname}}@${{inputs.ip}} -i ${{inputs.privatekey}} 
-        mkdir -p /home/${{inputs.hostname}}/new_directory
+        echo "${{ inputs.privatekey }}" > key.pem
+        chmod 600 key.pem
 
+    - name: Step-2 SSH and create directory
+      shell: bash
+      run: |
+        ssh -o StrictHostKeyChecking=no \
+            -i key.pem \
+            ${{ inputs.hostname }}@${{ inputs.ip }} \
+            "mkdir -p /home/${{ inputs.hostname }}/new_directory"
