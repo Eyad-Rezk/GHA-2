@@ -1,6 +1,6 @@
-name: My-Workflow
+name: workflow-2
 
-on: 
+on:
     push:
         branches:
             - main
@@ -10,26 +10,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: step-1
-              id: step-1
-              run: |
-                bike="vigory300"
-                echo "my-bike=$bike" >> $GITHUB_OUTPUT
+              uses: ./.github/actions/cat
               
-            - name: step-2
-              id: step-2
-              run: |
-                echo "my-bike from step-1: ${{ steps.step-1.outputs.my-bike }}"
-           
-            - name: step-3
-              run: |
-                model="2023"
-                echo "bike-model=$model" >> $GITHUB_ENV
-                
-
-            # - name: step-4
-            #   run: |
-            #     echo "the model is ${{ env.bike-model }}"
-
-            - name: step-5
-              run: |
-                echo "the dream bike is ${{vars.DREAMBIKE}}"
