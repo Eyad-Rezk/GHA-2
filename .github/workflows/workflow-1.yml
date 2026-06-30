@@ -67,4 +67,4 @@ jobs:
         with:
           hostname: "ec2-user"
           ip: "44.193.197.188"
-          privatekey: ${{secrets.Key-1}} #Note: This is a secret defined in the repository settings.
+          privatekey: ${{secrets.key}} #Note: This is a secret defined in the repository settings.
