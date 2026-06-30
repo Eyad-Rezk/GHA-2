@@ -4,6 +4,9 @@ description: 'This action will print the contents of a file to the console'
 runs:
      using: "composite" 
      steps:
+         - name: checkout
+           uses: actions/checkout@v3
+           
          - name: cat-file
            shell: bash
            run: |
