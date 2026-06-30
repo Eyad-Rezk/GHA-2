@@ -1,0 +1,20 @@
+
+              
+
+name: workflow-2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run local action
+        uses: ./actions/cat
