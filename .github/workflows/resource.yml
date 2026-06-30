@@ -13,9 +13,9 @@ jobs:
               id: step-1
               run: |
                 bike="vigory300"
-                echo "$bike" >> $GITHUB_OUTPUT
+                echo "my-bike=$bike" >> $GITHUB_OUTPUT
               
             - name: step-2
               id: step-2
               run: |
-                echo "my-bike from step-1: ${{ steps.step-1.outputs.bike }}"
+                echo "my-bike from step-1: ${{ steps.step-1.outputs.my-bike }}"
