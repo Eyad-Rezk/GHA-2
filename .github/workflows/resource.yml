@@ -26,9 +26,9 @@ jobs:
                 echo "bike-model=$model" >> $GITHUB_ENV
                 
 
-            - name: step-4
-              run: |
-                echo "the model is ${{ env.bike-model }}"
+            # - name: step-4
+            #   run: |
+            #     echo "the model is ${{ env.bike-model }}"
 
             - name: step-5
               run: |
