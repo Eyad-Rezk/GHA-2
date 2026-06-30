@@ -10,5 +10,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: step-1
-              uses: ./actions/cat/action.yml
+              uses: ./actions/cat
               
