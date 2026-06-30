@@ -19,3 +19,9 @@ jobs:
               id: step-2
               run: |
                 echo "my-bike from step-1: ${{ steps.step-1.outputs.my-bike }}"
+           
+            - name: step-3
+              run: |
+                model="2023"
+                echo "bike-model=$model" >> $GITHUB_ENV"
+                echo "{{env.bike-model}}"
