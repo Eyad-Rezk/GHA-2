@@ -1,2 +1,2 @@
-Hello,
-I am learning GitHub actions
+This is lab-2
+working on creating custome action and use it with inputs/outputs

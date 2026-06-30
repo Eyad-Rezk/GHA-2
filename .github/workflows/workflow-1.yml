@@ -1,7 +1,32 @@
    
+# name: workflow-1
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   job-1:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+#       - name: step-1
+#         uses: ./actions/cat
+#         with:
+#           username: "Eyad Rezk"
+#           age: "23"
+#           area: "Fustat"
+
+
+
 name: workflow-1
 
-on:
+description: This workflow will take input from github repository and print it to the console.
+
+on: 
   push:
     branches:
       - main
@@ -11,11 +36,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
       - name: step-1
-        uses: ./actions/cat
-        with:
-          username: "Eyad Rezk"
-          age: "23"
-          area: "Fustat"
+        run: |
+         echo "My dream bike is ${{vars.BIKENAME}}"
+
+      
