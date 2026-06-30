@@ -1,4 +1,4 @@
-   
+#_____________________________________________Custom GitHub Action Input/Output_____________________________________________#  
 # name: workflow-1
 
 # on:
@@ -21,12 +21,36 @@
 #           area: "Fustat"
 
 
+#_____________________________________________Workflow with Variables_____________________________________________#
+# name: workflow-1
 
+# description: This workflow will take input from github repository and print it to the console.
+
+# on: 
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   job-1:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: step-1
+#         run: |
+#          echo "My dream bike is ${{vars.DREAMBIKE}}" #Note: This is a variable defined in the repository settings.
+
+
+
+      
+
+
+#____________________________________________Workflow with Custom Action for EC2 Instance_____________________________________________#
 name: workflow-1
 
 description: This workflow will take input from github repository and print it to the console.
 
-on: 
+on:
   push:
     branches:
       - main
@@ -36,8 +60,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: step-1
-        run: |
-         echo "My dream bike is ${{vars.DREAMBIKE}}"
-
-      
+        uses: ./actions/cat
+        with:
+          hostname: "ec2-user"
+          ip: "44.193.197.188"
+          privatekey: ${{secrets.Key-1}} #Note: This is a secret defined in the repository settings.

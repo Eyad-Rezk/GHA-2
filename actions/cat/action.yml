@@ -1,4 +1,5 @@
 
+  #_____________________________________________Custom Action Input/Output_____________________________________________#
 # name: simple action for input/output task
 
 # description: A simple action that takes an input and returns an output.
@@ -25,4 +26,30 @@
 #        echo "your area is: ${{inputs.area}}"
         
 
+#____________________________________________Custom Action for EC2 Instance_____________________________________________#
+name: Action for EC2 Instance
+
+description: custom action to take hostname , ip of machine , private key and ssh into the machine and run a command to create dir in this machine
+
+inputs:
+   hostname:
+     description: 'The hostname of the machine'
+     required: true
+    
+   ip:
+     description: 'The IP address of the machine'
+     required: true
+
+   privatekey:
+     description: 'The private key for SSH access'
+     required: true
+
+ runs: 
+    using: composite
+    steps:
+    - name: step-1
+      shell: bash
+      run: |
+        ssh ${{inputs.hostname}}@${{inputs.ip}} -i ${{inputs.privatekey}} 
+        mkdir -p /home/${{inputs.hostname}}/new_directory
 
