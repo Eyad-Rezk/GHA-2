@@ -9,6 +9,13 @@ jobs:
     job-1:
         runs-on: ubuntu-latest
         steps:
-            - name: name-of-author
+            - name: step-1
+              id: step-1
               run: |
-                echo "Author: ${{ github.actor }}"
+                bike="vigory300"
+                echo "$bike" >> $GITHUB_OUTPUT
+              
+            - name: step-2
+              id: step-2
+              run: |
+                echo "my-bike from step-1: ${{ steps.step-1.outputs.bike }}"
